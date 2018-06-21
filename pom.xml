@@ -4,11 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>tio-http-server-showcase</artifactId>
 	<name>${project.artifactId}</name>
-
 	<parent>
 		<groupId>org.t-io</groupId>
 		<artifactId>tio-http-parent</artifactId>
-		<version>3.0.3.v20180620-RELEASE</version>
+		<version>3.0.4.v20180620-RELEASE</version>
 	</parent>
 
 	<dependencies>
