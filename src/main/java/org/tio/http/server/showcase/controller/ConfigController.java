@@ -1,4 +1,4 @@
-package org.tio.http.server.demo1.controller;
+package org.tio.http.server.showcase.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,13 +7,15 @@ import org.tio.http.common.HttpResponse;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.util.Resps;
 
+import com.jfinal.kit.PropKit;
+
 /**
  * @author tanyaowu
  * 2017年6月29日 下午7:53:59
  */
-@RequestPath(value = "/osc")
-public class OscController {
-	private static Logger log = LoggerFactory.getLogger(OscController.class);
+@RequestPath(value = "/config")
+public class ConfigController {
+	private static Logger log = LoggerFactory.getLogger(ConfigController.class);
 
 	/**
 	 * @param args
@@ -27,12 +29,15 @@ public class OscController {
 	 *
 	 * @author tanyaowu
 	 */
-	public OscController() {
+	public ConfigController() {
 	}
 
-	@RequestPath(value = "/cb")
+	@RequestPath(value = "/update")
 	public HttpResponse json(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.json(request, "ok");
+		//		AppStarter.conf = ConfigFactory.load("app.conf");
+		PropKit.useless("app.properties");
+		PropKit.use("app.properties", "utf-8");
+		HttpResponse ret = Resps.json(request, "更新成功");
 		return ret;
 	}
 }

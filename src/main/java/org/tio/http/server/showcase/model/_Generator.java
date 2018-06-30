@@ -12,11 +12,11 @@
  * 首次的尝试扼杀在了摇篮之中
  */
 
-package org.tio.http.server.demo1.model;
+package org.tio.http.server.showcase.model;
 
 import javax.sql.DataSource;
 
-import org.tio.http.server.demo1.init.JfinalInit;
+import org.tio.http.server.showcase.init.JfinalInit;
 
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
@@ -44,10 +44,10 @@ public class _Generator {
 	}
 
 	public static void main(String[] args) {
-		org.tio.http.server.demo1.init.JfinalInit.init();
+		org.tio.http.server.showcase.init.JfinalInit.init();
 
 		// model 所使用的包名 (MappingKit 默认使用的包名)
-		String modelPackageName = "org.tio.http.server.demo1.model";
+		String modelPackageName = "org.tio.http.server.showcase.model";
 
 		// base model 所使用的包名
 		String baseModelPackageName = modelPackageName + ".base";

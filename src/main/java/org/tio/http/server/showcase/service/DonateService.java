@@ -1,10 +1,10 @@
-package org.tio.http.server.demo1.service;
+package org.tio.http.server.showcase.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tio.http.server.demo1.init.JfinalInit;
-import org.tio.http.server.demo1.model.Donate;
-import org.tio.http.server.demo1.utils.EhcacheConst;
+import org.tio.http.server.showcase.init.JfinalInit;
+import org.tio.http.server.showcase.model.Donate;
+import org.tio.http.server.showcase.utils.EhcacheConst;
 
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.SqlPara;

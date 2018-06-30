@@ -1,4 +1,4 @@
-package org.tio.http.server.demo1.init;
+package org.tio.http.server.showcase.init;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

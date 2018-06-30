@@ -1,4 +1,4 @@
-package org.tio.http.server.demo1.model;
+package org.tio.http.server.showcase.model;
 
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 

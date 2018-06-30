@@ -1,4 +1,4 @@
-package org.tio.http.server.demo1.init;
+package org.tio.http.server.showcase.init;
 
 import java.io.IOException;
 
@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpConfig;
 import org.tio.http.common.handler.HttpRequestHandler;
 import org.tio.http.server.HttpServerStarter;
-import org.tio.http.server.demo1.HttpServerDemoStarter;
 import org.tio.http.server.handler.DefaultHttpRequestHandler;
 import org.tio.http.server.mvc.Routes;
+import org.tio.http.server.showcase.HttpServerDemoStarter;
 import org.tio.utils.SystemTimer;
 
 import com.jfinal.kit.PropKit;
