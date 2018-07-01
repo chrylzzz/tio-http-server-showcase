@@ -28,7 +28,7 @@ public class HttpServerInit {
 	public static HttpServerStarter httpServerStarter;
 
 	public static void init() throws Exception {
-		long start = SystemTimer.currentTimeMillis();
+		long start = SystemTimer.currTime;
 
 		PropKit.use("app.properties");
 
@@ -48,7 +48,7 @@ public class HttpServerInit {
 		httpServerStarter = new HttpServerStarter(httpConfig, requestHandler);
 		httpServerStarter.start();
 
-		long end = SystemTimer.currentTimeMillis();
+		long end = SystemTimer.currTime;
 		long iv = end - start;
 		log.info("Tio Http Server启动完毕,耗时:{}ms,访问地址:http://127.0.0.1:{}", iv, port);
 	}
