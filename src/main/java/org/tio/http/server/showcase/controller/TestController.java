@@ -114,7 +114,7 @@ public class TestController {
 
 	@RequestPath(value = "/putsession")
 	public HttpResponse putsession(String value, HttpRequest request) throws Exception {
-		request.getHttpSession().setAttribute("test", value, request.getHttpConfig());
+		request.getHttpSession().setAttribute("test", value, request.httpConfig);
 		HttpResponse ret = Resps.json(request, "设置成功:" + value);
 		return ret;
 	}
