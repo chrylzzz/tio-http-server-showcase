@@ -11,6 +11,7 @@ import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.showcase.model.User;
 import org.tio.http.server.util.Resps;
 import org.tio.utils.json.Json;
+import org.tio.utils.resp.RespVo;
 
 import cn.hutool.core.io.FileUtil;
 
@@ -94,7 +95,7 @@ public class TestController {
 
 	@RequestPath(value = "/json")
 	public HttpResponse json(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.json(request, "{\"ret\":\"OK\"}");
+		HttpResponse ret = Resps.json(request, RespVo.ok());
 		return ret;
 	}
 

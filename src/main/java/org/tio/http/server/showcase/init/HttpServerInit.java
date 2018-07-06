@@ -9,7 +9,8 @@ import org.tio.http.common.handler.HttpRequestHandler;
 import org.tio.http.server.HttpServerStarter;
 import org.tio.http.server.handler.DefaultHttpRequestHandler;
 import org.tio.http.server.mvc.Routes;
-import org.tio.http.server.showcase.HttpServerDemoStarter;
+import org.tio.http.server.showcase.HttpServerShowcaseStarter;
+import org.tio.server.ServerGroupContext;
 import org.tio.utils.SystemTimer;
 
 import com.jfinal.kit.PropKit;
@@ -26,6 +27,8 @@ public class HttpServerInit {
 	public static HttpRequestHandler requestHandler;
 
 	public static HttpServerStarter httpServerStarter;
+	
+	public static ServerGroupContext serverGroupContext;
 
 	public static void init() throws Exception {
 		long start = SystemTimer.currTime;
@@ -34,7 +37,7 @@ public class HttpServerInit {
 
 		int port = PropKit.getInt("http.port");//启动端口
 		String pageRoot = PropKit.get("http.page");//html/css/js等的根目录，支持classpath:，也支持绝对路径
-		String[] scanPackages = new String[] { HttpServerDemoStarter.class.getPackage().getName() };//tio mvc需要扫描的根目录包
+		String[] scanPackages = new String[] { HttpServerShowcaseStarter.class.getPackage().getName() };//tio mvc需要扫描的根目录包
 		
 		
 		httpConfig = new HttpConfig(port, null, null, null);
@@ -46,6 +49,8 @@ public class HttpServerInit {
 		
 		
 		httpServerStarter = new HttpServerStarter(httpConfig, requestHandler);
+		serverGroupContext = httpServerStarter.getServerGroupContext();
+		serverGroupContext.setUseQueueDecode(true);
 		httpServerStarter.start();
 
 		long end = SystemTimer.currTime;
