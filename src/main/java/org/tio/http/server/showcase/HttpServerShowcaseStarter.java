@@ -5,9 +5,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.server.showcase.init.HttpServerInit;
-import org.tio.http.server.showcase.init.JfinalInit;
-import org.tio.http.server.showcase.init.JsonInit;
-import org.tio.http.server.showcase.init.PropInit;
+import org.tio.http.server.showcase.init.P;
 
 /**
  * ab -c 10 -n 200000 -k http://127.0.0.1:9527/test/abtest
@@ -26,20 +24,14 @@ public class HttpServerShowcaseStarter {
 	@SuppressWarnings("unused")
 	private static Logger log = LoggerFactory.getLogger(HttpServerShowcaseStarter.class);
 
-	//	public static Config conf = ConfigFactory.load("app.properties");
-
 	/**
 	 * @param args
 	 * @author tanyaowu
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws Exception {
-		PropInit.init();
-		
-		JsonInit.init();
+		P.init();
 
-//		JfinalInit.init();
-		
 		HttpServerInit.init();
 	}
 
