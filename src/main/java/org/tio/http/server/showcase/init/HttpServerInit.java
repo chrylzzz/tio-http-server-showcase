@@ -10,7 +10,6 @@ import org.tio.http.server.handler.DefaultHttpRequestHandler;
 import org.tio.http.server.mvc.Routes;
 import org.tio.http.server.showcase.HttpServerShowcaseStarter;
 import org.tio.server.ServerGroupContext;
-import org.tio.utils.SystemTimer;
 
 
 /**
@@ -18,6 +17,7 @@ import org.tio.utils.SystemTimer;
  * 2017年7月19日 下午4:59:04
  */
 public class HttpServerInit {
+	@SuppressWarnings("unused")
 	private static Logger log = LoggerFactory.getLogger(HttpServerInit.class);
 
 	public static HttpConfig httpConfig;
@@ -29,7 +29,7 @@ public class HttpServerInit {
 	public static ServerGroupContext serverGroupContext;
 
 	public static void init() throws Exception {
-		long start = SystemTimer.currTime;
+//		long start = SystemTimer.currTime;
 
 		int port = P.getInt("http.port");//启动端口
 		String pageRoot = P.getString("http.page");//html/css/js等的根目录，支持classpath:，也支持绝对路径
@@ -49,13 +49,13 @@ public class HttpServerInit {
 
 		String protocol = SslUtils.isSsl(serverGroupContext) ? "https" : "http";
 
-		long end = SystemTimer.currTime;
-		long iv = end - start;
-		if (log.isInfoEnabled()) {
-			log.info("\r\nTio Http Server启动完毕,耗时:{}ms\r\n访问地址:{}://127.0.0.1:{}", iv, protocol, port);
-		} else {
-			System.out.println("\r\nTio Http Server启动完毕,耗时:" + iv + "ms,\r\n访问地址:" + protocol + "://127.0.0.1:" + port);
-		}
+//		long end = SystemTimer.currTime;
+//		long iv = end - start;
+//		if (log.isInfoEnabled()) {
+//			log.info("\r\nTio Http Server启动完毕,耗时:{}ms\r\n访问地址:{}://127.0.0.1:{}", iv, protocol, port);
+//		} else {
+//			System.out.println("\r\nTio Http Server启动完毕,耗时:" + iv + "ms,\r\n访问地址:" + protocol + "://127.0.0.1:" + port);
+//		}
 	}
 
 }
