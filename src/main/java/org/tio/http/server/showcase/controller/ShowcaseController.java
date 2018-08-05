@@ -10,10 +10,9 @@ import org.tio.http.common.UploadFile;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.showcase.model.User;
 import org.tio.http.server.util.Resps;
+import org.tio.utils.hutool.FileUtil;
 import org.tio.utils.json.Json;
 import org.tio.utils.resp.RespVo;
-
-import cn.hutool.core.io.FileUtil;
 
 /**
  * ab -k -n1000000 -c10 http://127.0.0.1:8080/json
