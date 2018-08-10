@@ -44,13 +44,13 @@ public class ShowcaseController {
 	 */
 	public ShowcaseController() {
 	}
-	
+
 	@RequestPath(value = "/404")
 	public HttpResponse page404(HttpRequest request) throws Exception {
 		HttpResponse ret = Resps.html(request, "没找到你要的页面");
 		return ret;
 	}
-	
+
 	@RequestPath(value = "/500")
 	public HttpResponse page500(HttpRequest request) throws Exception {
 		HttpResponse ret = Resps.html(request, "服务器内部错误");
@@ -73,6 +73,35 @@ public class ShowcaseController {
 		return ret;
 	}
 
+	/**
+	 *  string数组<br>
+	    <input type="text" name="names" value="kobe">
+		<input type="text" name="names" value="tan">
+		
+		<br><br>Integer数组<br>
+		<input type="text" name="ids" value="11">
+		<input type="text" name="ids" value="22">
+		
+		<br><br>int数组<br>
+		<input type="text" name="primitiveIds" value="55">
+		<input type="text" name="primitiveIds" value="66">
+	 * @param names
+	 * @param ids
+	 * @param primitiveIds
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 * @author tanyaowu
+	 */
+	@RequestPath(value = "/array")
+	public HttpResponse array(String[] names, Integer[] ids, int[] primitiveIds, HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.json(request, Json.toFormatedJson(names) + Json.toFormatedJson(ids) + Json.toFormatedJson(primitiveIds));
+		
+		Object[] xx = request.getParamArray("names");
+		log.info("xx:{}", Json.toFormatedJson(xx));
+		return ret;
+	}
+
 	@RequestPath(value = "/bean")
 	public HttpResponse bean(User user, HttpRequest request) throws Exception {
 		HttpResponse ret = Resps.json(request, Json.toFormatedJson(user));
@@ -91,7 +120,6 @@ public class ShowcaseController {
 		HttpResponse ret = Resps.file(request, new File(root, "test/test.zip"));
 		return ret;
 	}
-	
 
 	@RequestPath(value = "/html")
 	public HttpResponse html(HttpRequest request) throws Exception {
@@ -130,7 +158,7 @@ public class ShowcaseController {
 		HttpResponse ret = Resps.json(request, "设置成功:" + value);
 		return ret;
 	}
-	
+
 	@RequestPath(value = "/getsession")
 	public HttpResponse getsession(HttpRequest request) throws Exception {
 		String value = (String) request.getHttpSession().getAttribute("test");
