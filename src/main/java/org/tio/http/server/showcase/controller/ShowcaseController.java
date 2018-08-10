@@ -113,6 +113,12 @@ public class ShowcaseController {
 		HttpResponse ret = Resps.file(request, new File("d:/tio.exe"));
 		return ret;
 	}
+	
+	@RequestPath(value = "/var/{name}/{id}")
+	public HttpResponse var(String name, String id, HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.json(request, "name:" + name + "\r\n" + "id:" + id);
+		return ret;
+	}
 
 	@RequestPath(value = "/test.zip")
 	public HttpResponse test_zip(HttpRequest request) throws Exception {
