@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.server.showcase.init.HttpServerInit;
-import org.tio.http.server.showcase.init.P;
+import org.tio.utils.jfinal.P;
 
 /**
  * ab -c 10 -n 200000 -k http://127.0.0.1:9527/test/abtest
@@ -30,7 +30,7 @@ public class HttpServerShowcaseStarter {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws Exception {
-		P.init();
+		P.use("app.properties");
 
 		HttpServerInit.init();
 	}
