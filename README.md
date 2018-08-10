@@ -1,5 +1,7 @@
 # tio-http-server-showcase
 
+ **如遇编译报错，请先更新母项目：[https://gitee.com/tywo45/t-io](https://gitee.com/tywo45/t-io)** 
+
 #### 项目介绍
 tio-http-server的演示，以便用户可以更便捷地学习和掌握tio-http-server
 
