@@ -1,6 +1,7 @@
 package org.tio.http.server.showcase.controller;
 
 import java.io.File;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +73,14 @@ public class ShowcaseController {
 		HttpResponse ret = Resps.html(request, "OK---------1");
 		return ret;
 	}
+	
+	
+	@RequestPath(value = "/date")
+	public HttpResponse date(Date[] date, java.sql.Date[] sqlDate, java.sql.Timestamp[] timestamp, HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.json(request, Json.toFormatedJson(date) + Json.toFormatedJson(sqlDate) + Json.toFormatedJson(timestamp));
+		return ret;
+	}
+	
 
 	/**
 	 *  string数组<br>

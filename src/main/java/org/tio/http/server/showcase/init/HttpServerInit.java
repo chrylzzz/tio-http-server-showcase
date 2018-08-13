@@ -38,6 +38,7 @@ public class HttpServerInit {
 		httpConfig.setPage404(P.get("http.404"));
 		httpConfig.setPage500(P.get("http.500"));
 		httpConfig.setUseSession(false);
+		httpConfig.setCheckHost(false);
 
 		String[] scanPackages = new String[] { HttpServerShowcaseStarter.class.getPackage().getName() };//tio mvc需要扫描的根目录包，会递归子目录
 		Routes routes = new Routes(scanPackages);
