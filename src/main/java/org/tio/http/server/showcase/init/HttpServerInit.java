@@ -6,7 +6,6 @@ import org.tio.http.common.HttpConfig;
 import org.tio.http.common.handler.HttpRequestHandler;
 import org.tio.http.server.HttpServerStarter;
 import org.tio.http.server.handler.DefaultHttpRequestHandler;
-import org.tio.http.server.mvc.Routes;
 import org.tio.http.server.showcase.HttpServerShowcaseStarter;
 import org.tio.server.ServerGroupContext;
 import org.tio.utils.jfinal.P;
@@ -40,9 +39,7 @@ public class HttpServerInit {
 		httpConfig.setUseSession(false);
 		httpConfig.setCheckHost(false);
 
-		String[] scanPackages = new String[] { HttpServerShowcaseStarter.class.getPackage().getName() };//tio mvc需要扫描的根目录包，会递归子目录
-		Routes routes = new Routes(scanPackages);
-		requestHandler = new DefaultHttpRequestHandler(httpConfig, routes);
+		requestHandler = new DefaultHttpRequestHandler(httpConfig, HttpServerShowcaseStarter.class);//第二个参数也可以是数组
 
 		httpServerStarter = new HttpServerStarter(httpConfig, requestHandler);
 		serverGroupContext = httpServerStarter.getServerGroupContext();
