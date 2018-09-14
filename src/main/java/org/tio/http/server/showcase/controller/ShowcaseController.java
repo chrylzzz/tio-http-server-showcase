@@ -131,7 +131,7 @@ public class ShowcaseController {
 
 	@RequestPath(value = "/test.zip")
 	public HttpResponse test_zip(HttpRequest request) throws Exception {
-		File root = request.httpConfig.getPageRoot(request);
+		String root = request.httpConfig.getPageRoot(request);
 		HttpResponse ret = Resps.file(request, new File(root, "test/test.zip"));
 		return ret;
 	}
