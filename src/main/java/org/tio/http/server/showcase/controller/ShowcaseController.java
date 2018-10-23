@@ -48,13 +48,13 @@ public class ShowcaseController {
 
 	@RequestPath(value = "/404")
 	public HttpResponse page404(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.html(request, "没找到你要的页面");
+		HttpResponse ret = Resps.html(request, "自定义的404");
 		return ret;
 	}
 
 	@RequestPath(value = "/500")
 	public HttpResponse page500(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.html(request, "服务器内部错误");
+		HttpResponse ret = Resps.html(request, "自定义的500");
 		return ret;
 	}
 
